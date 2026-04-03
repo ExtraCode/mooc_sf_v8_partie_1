@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Retrouvez les jeux de société{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/pages/jeu.scss') }}">
+{% endblock %}
+
+{% block body %}
+
+    <section class="container">
+        <h1>Bienvenue sur mon site de jeux.</h1>
+
+        <p>Louez vos jeux de société, de particulier à particulier.</p>
+
+        {# Liste de mes jeux #}
+        <div class="d-flex justify-content-between flex-wrap">
+
+            {% for jeu in jeux %}
+
+                <div class="card mb-4 jeu" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ jeu.nom }}</h5>
+                        <p class="card-text">
+                            {{ jeu.description }}
+                        </p>
+                        <p class="jeu__date jeu__date--dark">
+                            Sortie le {{ jeu.dateSortie | date('d/m/Y') }}
+                        </p>
+                        <a href="#" class="btn btn-primary btn-sm">Voir le jeu</a>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </section>
+
+{% endblock %}

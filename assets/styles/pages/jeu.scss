@@ -1,0 +1,12 @@
+.jeu {
+    border: 1px solid #d5d5d5 !important;
+
+    &__date {
+        color: grey;
+        font-size: 12px;
+
+        &--dark {
+            color: black;
+        }
+    }
+}
